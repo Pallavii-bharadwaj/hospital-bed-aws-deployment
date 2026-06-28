@@ -17,15 +17,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install fastapi uvicorn scikit-learn pandas numpy joblib pydantic httpx
+        run: pip install fastapi uvicorn scikit-learn pandas numpy joblib pydantic
 
       - name: Train model
-        run: |
-          mkdir -p app
-          python3 train_model.py
+        run: python3 train_model.py
 
       - name: Test health endpoint
         run: |
           uvicorn main:app --host 0.0.0.0 --port 8000 &
-          sleep 3
+          sleep 5
           curl -f http://localhost:8000/health
