@@ -17,10 +17,12 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install fastapi uvicorn scikit-learn pandas numpy joblib pydantic
+        run: pip install fastapi uvicorn scikit-learn pandas numpy joblib pydantic httpx
 
       - name: Train model
-        run: python3 train_model.py
+        run: |
+          mkdir -p app
+          python3 train_model.py
 
       - name: Test health endpoint
         run: |
