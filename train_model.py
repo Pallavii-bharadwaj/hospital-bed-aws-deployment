@@ -99,8 +99,8 @@ def main():
     joblib.dump({
         "model": best,
         "features": list(X.columns),
-    }, "app/model.pkl")
-    print("\nSaved -> app/model.pkl")
+    }, "model.pkl")
+    print("\nSaved -> model.pkl")
 
 
 if __name__ == "__main__":
